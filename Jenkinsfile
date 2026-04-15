@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/MajuShree/MymavenWebApp.git'
+                git branch: 'master', url: 'https://github.com/MajuShree/MyMavenApp.git'
             }
         }
 
@@ -26,9 +26,10 @@ pipeline {
         
         
        
-        stage('Deploy WAR') {
+        stage('Run Application') {
             steps {
-                sh 'cp target/MymavenWebApp.war /opt/tomcat/webapps/'
+                // Start the JAR application
+                sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
             }
         }
 
